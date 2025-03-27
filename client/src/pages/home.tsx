@@ -70,13 +70,15 @@ export default function Home() {
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
           }}
-          className="fixed bottom-8 right-8 flex gap-6 text-sm lowercase"
+          className="fixed bottom-8 right-12 flex text-sm lowercase"
           threshold={0.1}
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
-          <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
+          <div className="flex gap-16">
+            <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
+            <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
+          </div>
         </InView>
       </div>
     </div>
