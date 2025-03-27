@@ -57,7 +57,7 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <div className="max-w-md lowercase font-mono text-xs"> {/* Added text-xs for ~30% smaller */}
+            <div className="max-w-md lowercase font-mono text-sm"> {/* Updated to text-sm to match scroll down */}
               <p>
                 my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
               </p>
@@ -73,7 +73,7 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
           >
-            <div className="flex flex-col lowercase font-mono text-xs"> {/* Added text-xs for ~30% smaller */}
+            <div className="flex flex-col lowercase font-mono text-sm"> {/* Updated to text-sm to match scroll down */}
               <span className="text-foreground hover:underline">
                 <Link href="/projects">projects</Link>
               </span>
