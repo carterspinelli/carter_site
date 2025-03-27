@@ -17,11 +17,11 @@ export default function Miscellaneous() {
       image: "/albert_einstein.webp"
     },
     {
-      title: "Blade Runner - Synthwave",
-      director: "Music inspired by Ridley Scott's film",
+      title: "Everything In Its Right Place",
+      director: "Music from Radiohead",
       image: "https://i.imgur.com/JD38uTJ.jpg",
       isVideo: true,
-      videoSrc: "https://www.youtube.com/embed/S9WWz95ripA"
+      videoSrc: "/videos/Everything In Its Right Place.mp4"
     },
     {
       title: "Akira",
@@ -76,13 +76,12 @@ export default function Miscellaneous() {
                   }}
                 />
                 {item.isVideo ? (
-                  <iframe
+                  <video
                     src={item.videoSrc}
                     title={item.title}
                     className='h-32 w-full rounded-lg object-cover'
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                    controls
+                  ></video>
                 ) : (
                   <img
                     src={item.image}
