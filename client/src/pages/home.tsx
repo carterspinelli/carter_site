@@ -40,16 +40,15 @@ export default function Home() {
         scroll down
       </motion.div>
 
-      {/* Content that appears when scrolling down - modified to always be visible */}
-      <div className="flex min-h-[100vh] items-end justify-between px-4 pb-24">
-        <div className="h-[20vh]"></div> {/* Reduced spacer height */}
+      {/* Content that appears when scrolling down */}
+      <div className="flex min-h-[150vh] items-end justify-between px-4 pb-24">
+        <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
             hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
             visible: { opacity: 1, y: 0, filter: "blur(0px)" },
           }}
-          initial="visible" /* Start as visible */
-          animate="visible" /* Always stay visible */
+          viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="max-w-96 lowercase">
@@ -65,8 +64,7 @@ export default function Home() {
             hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
             visible: { opacity: 1, y: 0, filter: "blur(0px)" },
           }}
-          initial="visible" /* Start as visible */
-          animate="visible" /* Always stay visible */
+          viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="flex flex-col lowercase">
