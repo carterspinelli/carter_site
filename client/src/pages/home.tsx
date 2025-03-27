@@ -59,7 +59,7 @@ export default function Home() {
           >
             <div className="max-w-md lowercase">
               <p>
-                i seek digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. the best innovations feel invisible yet transform everything.
+                my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
               </p>
             </div>
           </InView>
