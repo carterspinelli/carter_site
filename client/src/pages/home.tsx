@@ -41,7 +41,7 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="flex min-h-[150vh] items-end justify-start px-4 pb-24">
+      <div className="flex min-h-[150vh] items-end justify-between px-4 pb-24">
         <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
@@ -55,6 +55,21 @@ export default function Home() {
             <p>
               i seek digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. the best innovations feel invisible yet transform everything.
             </p>
+          </div>
+        </InView>
+        
+        {/* Links on the right side */}
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          viewOptions={{ margin: "0px 0px -200px 0px" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <div className="flex flex-col items-end lowercase">
+            <a href="/projects" className="mb-2 hover:underline">projects</a>
+            <a href="/miscellaneous" className="hover:underline">miscellaneous</a>
           </div>
         </InView>
       </div>
