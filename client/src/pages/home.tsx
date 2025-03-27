@@ -31,17 +31,17 @@ export default function Home() {
     >
       {/* Scroll down text that fades out when scrolling */}
       <motion.div 
-        className="py-12 text-center text-sm sticky top-0"
+        className="py-12 text-center text-sm sticky top-0 lowercase"
         style={{ 
           opacity: Math.max(0, 1 - scrollPosition / 50),
           pointerEvents: scrollPosition > 50 ? "none" : "auto" 
         }}
       >
-        Scroll down
+        scroll down
       </motion.div>
       
       {/* Content that appears when scrolling down */}
-      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24">
+      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24 relative">
         <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
@@ -51,15 +51,21 @@ export default function Home() {
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="max-w-96">
+          <div className="max-w-96 lowercase">
             <p>
               <strong className="font-medium">
-                I seek digital solutions that reshape how we interact with money, work, learning, and life.
+                i seek digital solutions that reshape how we interact with money, work, learning, and life.
               </strong>{" "}
-              My design idea: technology should vanish, leaving only possibility. Nothing wasted -- every element serves a purpose. I believe the best innovations feel invisible yet transform everything.
+              my design idea: technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. i believe the best innovations feel invisible yet transform everything.
             </p>
           </div>
         </InView>
+        
+        {/* Navigation links at bottom right */}
+        <div className="fixed bottom-8 right-8 flex gap-6 text-sm lowercase">
+          <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
+          <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
+        </div>
       </div>
     </div>
   );
