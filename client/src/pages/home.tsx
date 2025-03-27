@@ -75,7 +75,7 @@ export default function Home() {
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="flex gap-16">
+          <div className="flex flex-col items-end gap-4">
             <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
             <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
           </div>
