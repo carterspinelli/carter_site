@@ -4,8 +4,11 @@ import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
 import { PlayCircle } from "lucide-react";
+import { useRef } from "react";
 
 export default function Miscellaneous() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  
   const titles = [
     {
       title: "Steve Jobs, 1997",
@@ -84,7 +87,19 @@ export default function Miscellaneous() {
                     className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
                   />
                   {item.isAudio && (
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity">
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity cursor-pointer"
+                      onClick={() => {
+                        const audio = document.querySelector(`audio[data-title="${item.title}"]`) as HTMLAudioElement;
+                        if (audio) {
+                          if (audio.paused) {
+                            audio.play();
+                          } else {
+                            audio.pause();
+                          }
+                        }
+                      }}
+                    >
                       <PlayCircle className="w-12 h-12 text-white" />
                     </div>
                   )}
@@ -104,6 +119,8 @@ export default function Miscellaneous() {
                       controls 
                       controlsList="nodownload" 
                       className="w-full h-8 opacity-70 hover:opacity-100 transition-opacity"
+                      data-title={item.title}
+                      ref={item.title === "Everything In Its Right Place" ? audioRef : undefined}
                     />
                   </div>
                 )}
