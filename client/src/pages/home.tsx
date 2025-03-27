@@ -31,17 +31,17 @@ export default function Home() {
     >
       {/* Scroll down text that fades out when scrolling */}
       <motion.div 
-        className="py-12 text-center text-sm sticky top-0 lowercase"
+        className="py-12 text-center text-sm sticky top-0"
         style={{ 
           opacity: Math.max(0, 1 - scrollPosition / 50),
           pointerEvents: scrollPosition > 50 ? "none" : "auto" 
         }}
       >
-        scroll down
+        Scroll down
       </motion.div>
       
       {/* Content that appears when scrolling down */}
-      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24 relative">
+      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24">
         <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
@@ -51,34 +51,13 @@ export default function Home() {
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="max-w-96 lowercase">
+          <div className="max-w-96">
             <p>
               <strong className="font-medium">
-                i seek digital solutions that reshape how we interact with money, work, learning, and life.
+                I seek digital solutions that reshape how we interact with money, work, learning, and life.
               </strong>{" "}
-              my belief is that technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. the best innovations feel invisible yet transform everything.
+              My design idea: technology should vanish, leaving only possibility. Nothing wasted -- every element serves a purpose. I believe the best innovations feel invisible yet transform everything.
             </p>
-            
-            </div>
-        </InView>
-        
-        {/* Navigation links that appear after scrolling */}
-        {/* Navigation links on the left side of the paragraph */}
-        <InView
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 }
-          }}
-          className="absolute bottom-24 left-0 flex text-sm lowercase"
-          threshold={0.1}
-          viewOptions={{ margin: "0px 0px -200px 0px" }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <div className="flex flex-col items-start gap-4">
-            <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
-            <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
           </div>
         </InView>
       </div>
