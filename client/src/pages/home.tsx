@@ -56,16 +56,16 @@ export default function Home() {
               <strong className="font-medium">
                 i seek digital solutions that reshape how we interact with money, work, learning, and life.
               </strong>{" "}
-              my design idea: technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. i believe the best innovations feel invisible yet transform everything.
+              my belief is that technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. the best innovations feel invisible yet transform everything.
             </p>
+            
+            {/* Navigation links moved inside InView component to appear with text */}
+            <div className="absolute bottom-8 right-8 flex gap-6 text-sm lowercase">
+              <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
+              <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
+            </div>
           </div>
         </InView>
-        
-        {/* Navigation links at bottom right */}
-        <div className="fixed bottom-8 right-8 flex gap-6 text-sm lowercase">
-          <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
-          <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
-        </div>
       </div>
     </div>
   );
