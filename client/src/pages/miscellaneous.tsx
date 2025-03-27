@@ -10,7 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Play, X } from "lucide-react";
+import { Play, X, ArrowLeft } from "lucide-react";
+import { Link } from "wouter";
 
 // Import assets directly to ensure they are bundled correctly
 import radioheadAlbumArt from "../images/radiohead_kid_a.png";
@@ -72,6 +73,18 @@ export default function Miscellaneous() {
 
   return (
     <div className="min-h-screen p-8">
+      <Link to="/" className="inline-block mb-6">
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          className="flex items-center gap-1 text-zinc-500 hover:text-black dark:hover:text-white transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4 stroke-[1.5px]" />
+          <span className="text-xs lowercase">back</span>
+        </motion.div>
+      </Link>
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
