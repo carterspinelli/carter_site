@@ -63,6 +63,7 @@ export default function Home() {
         </InView>
         
         {/* Navigation links that appear after scrolling */}
+        {/* Navigation links on the left side of the paragraph */}
         <InView
           initial="hidden"
           animate="visible"
@@ -70,7 +71,7 @@ export default function Home() {
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
           }}
-          className="fixed bottom-8 left-0 flex text-sm lowercase"
+          className="absolute bottom-24 left-20 flex text-sm lowercase"
           threshold={0.1}
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
