@@ -76,20 +76,21 @@ export default function Miscellaneous() {
                   }}
                 />
                 {item.isVideo ? (
-                  <div className="relative h-32 w-full">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute inset-0 h-full w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0 z-0"
-                      style={{ objectPosition: "center center" }}
-                    />
+                  <div className="relative h-32 w-full group/video">
                     <video
                       src={item.videoSrc}
                       title={item.title}
-                      className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-0 hover:opacity-80 focus:opacity-80 z-10"
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover z-0"
                       controls
-                      style={{ background: "transparent" }}
                     ></video>
+                    <div className="absolute inset-0 z-10 transition-opacity duration-300 group-hover/video:opacity-90">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0"
+                        style={{ objectPosition: "center center" }}
+                      />
+                    </div>
                   </div>
                 ) : (
                   <img
