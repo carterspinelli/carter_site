@@ -80,15 +80,15 @@ export default function Miscellaneous() {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="absolute inset-0 h-full w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0"
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0 z-0"
                       style={{ objectPosition: "center center" }}
                     />
                     <video
                       src={item.videoSrc}
                       title={item.title}
-                      className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-0 hover:opacity-100 focus:opacity-100"
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-0 hover:opacity-80 focus:opacity-80 z-10"
                       controls
-                      poster={item.image}
+                      style={{ background: "transparent" }}
                     ></video>
                   </div>
                 ) : (
