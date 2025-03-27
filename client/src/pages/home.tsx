@@ -41,7 +41,7 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24">
+      <div className="flex min-h-[150vh] items-end justify-start px-4 pb-24">
         <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
