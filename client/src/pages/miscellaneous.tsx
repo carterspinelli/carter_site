@@ -80,7 +80,7 @@ export default function Miscellaneous() {
       >
         <h1 className="text-2xl font-light mb-4 lowercase">miscellaneous</h1>
         <p className="text-sm text-zinc-500 max-w-2xl lowercase">
-          a collection of ideas and music that i like.
+          a collection of ideas, music, and things that i like.
         </p>
       </motion.div>
 
