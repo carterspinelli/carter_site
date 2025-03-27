@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
+import { PlayCircle } from "lucide-react";
 
 export default function Miscellaneous() {
   const titles = [
@@ -20,8 +21,8 @@ export default function Miscellaneous() {
       title: "Everything In Its Right Place",
       director: "Radiohead. \"Everything in Its Right Place.\" Kid A, Capitol Records, 2000.",
       image: "/radiohead_kid_a.png",
-      isVideo: true,
-      videoSrc: "/videos/Everything In Its Right Place.mp4"
+      isAudio: true,
+      audioSrc: "/music/Radiohead - Everything In Its Right Place.mp3"
     },
     {
       title: "Akira",
@@ -75,21 +76,19 @@ export default function Miscellaneous() {
                     mass: 0.2,
                   }}
                 />
-                {item.isVideo ? (
-                  <video
-                    src={item.videoSrc}
-                    title={item.title}
-                    className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
-                    controls
-                  ></video>
-                ) : (
+                <div className="relative">
                   <img
                     src={item.image}
                     alt={item.title}
                     style={item.title === "Everything In Its Right Place" ? { objectPosition: "center center" } : {}}
                     className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
                   />
-                )}
+                  {item.isAudio && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity">
+                      <PlayCircle className="w-12 h-12 text-white" />
+                    </div>
+                  )}
+                </div>
               </Tilt>
               <div className='flex flex-col space-y-0.5 pb-0 pt-3'>
                 <h3 className='font-mono text-sm font-medium text-zinc-500 dark:text-zinc-400 lowercase'>
@@ -98,6 +97,16 @@ export default function Miscellaneous() {
                 <p className='text-sm text-black dark:text-white lowercase'>
                   {item.director}
                 </p>
+                {item.isAudio && (
+                  <div className="mt-2">
+                    <audio 
+                      src={item.audioSrc} 
+                      controls 
+                      controlsList="nodownload" 
+                      className="w-full h-8 opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
