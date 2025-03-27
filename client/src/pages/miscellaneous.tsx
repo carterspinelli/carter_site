@@ -19,7 +19,7 @@ export default function Miscellaneous() {
     {
       title: "Everything In Its Right Place",
       director: "Radiohead. \"Everything in Its Right Place.\" Kid A, Capitol Records, 2000.",
-      image: "https://i.imgur.com/JD38uTJ.jpg",
+      image: "/kid_a_radiohead.webp",
       isVideo: true,
       videoSrc: "/videos/Everything In Its Right Place.mp4"
     },
