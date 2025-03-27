@@ -59,12 +59,24 @@ export default function Home() {
               my belief is that technology should vanish, leaving only possibility. nothing wasted -- every element serves a purpose. the best innovations feel invisible yet transform everything.
             </p>
             
-            {/* Navigation links moved inside InView component to appear with text */}
-            <div className="absolute bottom-8 right-8 flex gap-6 text-sm lowercase">
-              <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
-              <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
             </div>
-          </div>
+        </InView>
+        
+        {/* Navigation links that appear after scrolling */}
+        <InView
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 }
+          }}
+          className="fixed bottom-8 right-8 flex gap-6 text-sm lowercase"
+          threshold={0.1}
+          viewOptions={{ margin: "0px 0px -200px 0px" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
+          <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
         </InView>
       </div>
     </div>
