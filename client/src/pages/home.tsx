@@ -2,7 +2,6 @@
 import { InView } from "@/components/ui/in-view";
 import { motion, useScroll } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Added import
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,10 +57,6 @@ export default function Home() {
             </p>
           </div>
         </InView>
-        <div className="ml-auto"> {/* Added div for links */}
-          <Link to="/projects" className="block mb-2">Projects</Link>
-          <Link to="/miscellaneous" className="block">Miscellaneous</Link>
-        </div>
       </div>
     </div>
   );
