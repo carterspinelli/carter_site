@@ -79,7 +79,7 @@ export default function Miscellaneous() {
                   <video
                     src={item.videoSrc}
                     title={item.title}
-                    className='h-32 w-full rounded-lg object-cover'
+                    className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
                     controls
                   ></video>
                 ) : (
