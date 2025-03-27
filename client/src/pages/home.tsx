@@ -54,12 +54,9 @@ export default function Home() {
           <div className="max-w-96">
             <p>
               <strong className="font-medium">
-                Craft beautiful animated components with Motion-Primitives.
+                I seek digital solutions that reshape how we interact with money, work, learning, and life.
               </strong>{" "}
-              Designed for developers and designers. The library leverages the
-              power of Framer Motion, with intuitive APIs that simplifies
-              creating complex animations for any project. Start building more
-              dynamic interfaces today.
+              My design idea: technology should vanish, leaving only possibility. Nothing wasted -- every element serves a purpose. I believe the best innovations feel invisible yet transform everything.
             </p>
           </div>
         </InView>
