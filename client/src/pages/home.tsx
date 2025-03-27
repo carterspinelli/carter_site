@@ -1,11 +1,48 @@
 "use client";
 import { InView } from "@/components/ui/in-view";
+import { motion, useScroll } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 export default function Home() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  
+  // Track scroll position
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    
+    const handleScroll = () => {
+      if (container) {
+        setScrollPosition(container.scrollTop);
+      }
+    };
+    
+    container.addEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="h-[100vh] w-full overflow-auto">
-      <div className="py-12 text-center text-sm">Scroll down</div>
-      <div className="flex h-[calc(100vh-48px)] items-end justify-center px-4 pb-24">
+    <div 
+      ref={containerRef} 
+      className="h-[100vh] w-full overflow-auto"
+    >
+      {/* Scroll down text that fades out when scrolling */}
+      <motion.div 
+        className="py-12 text-center text-sm sticky top-0"
+        style={{ 
+          opacity: Math.max(0, 1 - scrollPosition / 50),
+          pointerEvents: scrollPosition > 50 ? "none" : "auto" 
+        }}
+      >
+        Scroll down
+      </motion.div>
+      
+      {/* Content that appears when scrolling down */}
+      <div className="flex min-h-[150vh] items-end justify-center px-4 pb-24">
+        <div className="h-[50vh]"></div> {/* Spacer to push content down */}
         <InView
           variants={{
             hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
