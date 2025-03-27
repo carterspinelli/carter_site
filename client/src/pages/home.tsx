@@ -70,7 +70,7 @@ export default function Home() {
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
           }}
-          className="fixed bottom-8 right-12 flex text-sm lowercase"
+          className="fixed bottom-8 right-20 flex text-sm lowercase"
           threshold={0.1}
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
