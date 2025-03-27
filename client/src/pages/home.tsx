@@ -57,7 +57,7 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <div className="max-w-md lowercase font-mono"> {/* Added font-mono */}
+            <div className="max-w-md lowercase font-mono text-xs"> {/* Added text-xs for ~30% smaller */}
               <p>
                 my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
               </p>
@@ -73,7 +73,7 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
           >
-            <div className="flex flex-col lowercase font-mono"> {/* Added font-mono */}
+            <div className="flex flex-col lowercase font-mono text-xs"> {/* Added text-xs for ~30% smaller */}
               <span className="text-foreground hover:underline">
                 <Link href="/projects">projects</Link>
               </span>
