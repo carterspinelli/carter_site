@@ -17,9 +17,11 @@ export default function Miscellaneous() {
       image: "/albert_einstein.webp"
     },
     {
-      title: "Blade Runner",
-      director: "Ridley Scott",
-      image: "https://i.imgur.com/JD38uTJ.jpg"
+      title: "Blade Runner - Synthwave",
+      director: "Music inspired by Ridley Scott's film",
+      image: "https://i.imgur.com/JD38uTJ.jpg",
+      isVideo: true,
+      videoSrc: "https://www.youtube.com/embed/S9WWz95ripA"
     },
     {
       title: "Akira",
@@ -73,11 +75,21 @@ export default function Miscellaneous() {
                     mass: 0.2,
                   }}
                 />
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
-                />
+                {item.isVideo ? (
+                  <iframe
+                    src={item.videoSrc}
+                    title={item.title}
+                    className='h-32 w-full rounded-lg object-cover'
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
+                  />
+                )}
               </Tilt>
               <div className='flex flex-col space-y-0.5 pb-0 pt-3'>
                 <h3 className='font-mono text-sm font-medium text-zinc-500 dark:text-zinc-400 lowercase'>
