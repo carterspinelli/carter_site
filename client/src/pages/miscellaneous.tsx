@@ -76,18 +76,27 @@ export default function Miscellaneous() {
                   }}
                 />
                 {item.isVideo ? (
-                  <video
-                    src={item.videoSrc}
-                    title={item.title}
-                    className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
-                    controls
-                  ></video>
+                  <div className="relative h-32 w-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0"
+                      style={{ objectPosition: "center center" }}
+                    />
+                    <video
+                      src={item.videoSrc}
+                      title={item.title}
+                      className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-0 hover:opacity-100 focus:opacity-100"
+                      controls
+                      poster={item.image}
+                    ></video>
+                  </div>
                 ) : (
                   <img
                     src={item.image}
                     alt={item.title}
                     style={item.title === "Everything In Its Right Place" ? { objectPosition: "center center" } : {}}
-                    className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
+                    className="h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0"
                   />
                 )}
               </Tilt>
