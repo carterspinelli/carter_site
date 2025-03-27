@@ -70,12 +70,12 @@ export default function Home() {
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
           }}
-          className="fixed bottom-8 right-20 flex text-sm lowercase"
+          className="fixed bottom-8 left-20 flex text-sm lowercase"
           threshold={0.1}
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="flex flex-col items-end gap-4">
+          <div className="flex flex-col items-start gap-4">
             <a href="/projects" className="hover:underline transition-all duration-300">projects</a>
             <a href="/miscellaneous" className="hover:underline transition-all duration-300">miscellaneous</a>
           </div>
