@@ -6,8 +6,20 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { PlayCircle } from "lucide-react";
 import { useRef } from "react";
 
+// No need to import the image as we'll use the public path directly
+
 export default function Miscellaneous() {
   const audioRef = useRef<HTMLAudioElement>(null);
+  
+  const handlePlayAudio = () => {
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  };
   
   const titles = [
     {
@@ -102,8 +114,9 @@ export default function Miscellaneous() {
                       controls 
                       controlsList="nodownload" 
                       className="w-full h-8 opacity-70 hover:opacity-100 transition-opacity"
-                      data-title={item.title}
                       ref={item.title === "Everything In Its Right Place" ? audioRef : undefined}
+                      onPlay={() => console.log("Audio playing")}
+                      onError={(e) => console.error("Audio error:", e)}
                     />
                   </div>
                 )}
