@@ -1,0 +1,94 @@
+Build this as my initial prototype
+
+Copy-paste this component to /components/ui folder:
+```tsx
+component.tsx
+'use client';
+import { ReactNode, useRef } from 'react';
+import {
+  motion,
+  useInView,
+  Variant,
+  Transition,
+  UseInViewOptions,
+} from 'framer-motion';
+
+interface InViewProps {
+  children: ReactNode;
+  variants?: {
+    hidden: Variant;
+    visible: Variant;
+  };
+  transition?: Transition;
+  viewOptions?: UseInViewOptions;
+}
+
+const defaultVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+export function InView({
+  children,
+  variants = defaultVariants,
+  transition,
+  viewOptions,
+}: InViewProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, viewOptions);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={variants}
+      transition={transition}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+
+demo.tsx
+"use client";
+import { InView } from "@/components/ui/in-view";
+import { motion } from "framer-motion";
+
+function InViewBasic() {
+  return (
+    <div className="h-[350px] w-full overflow-auto">
+      <div className="py-12 text-center text-sm">Scroll down</div>
+      <div className="flex h-[500px] items-end justify-center px-4 pb-24">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          viewOptions={{ margin: "0px 0px -200px 0px" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <div className="max-w-96">
+            <p className="">
+              <strong className="font-medium">
+                Craft beautiful animated components with Motion-Primitives.
+              </strong>{" "}
+              Designed for developers and designers. The library leverages the
+              power of Framer Motion, with intuitive APIs that simplifies
+              creating complex animations for any project. Start building more
+              dynamic interfaces today.
+            </p>
+          </div>
+        </InView>
+      </div>
+    </div>
+  );
+}
+
+
+export default {
+  InViewBasic
+};
+
+```
