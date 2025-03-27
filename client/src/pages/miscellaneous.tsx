@@ -86,7 +86,7 @@ export default function Miscellaneous() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    style={item.title === "Everything In Its Right Place" ? { objectPosition: "center top" } : {}}
+                    style={item.title === "Everything In Its Right Place" ? { objectPosition: "center 5%" } : {}}
                     className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
                   />
                 )}
