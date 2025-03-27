@@ -1,6 +1,8 @@
 
 import { motion } from "framer-motion";
 import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
+import { Tilt } from "@/components/ui/tilt";
+import { Spotlight } from "@/components/ui/spotlight";
 
 export default function Miscellaneous() {
   const titles = [
