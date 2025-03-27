@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
-import { PlayCircle } from "lucide-react";
 import { useRef } from "react";
 
-// No need to import the image as we'll use the public path directly
+// Import assets directly to ensure they are bundled correctly
+import radioheadAlbumArt from '../images/radiohead_kid_a.png';
+import radioheadAudio from '../images/Radiohead - Everything In Its Right Place.mp3';
 
 export default function Miscellaneous() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -35,9 +36,9 @@ export default function Miscellaneous() {
     {
       title: "Everything In Its Right Place",
       director: "Radiohead. \"Everything in Its Right Place.\" Kid A, Capitol Records, 2000.",
-      image: "/radiohead_kid_a.png",
+      image: radioheadAlbumArt,
       isAudio: true,
-      audioSrc: "/music/Radiohead - Everything In Its Right Place.mp3"
+      audioSrc: radioheadAudio
     },
     {
       title: "Akira",
