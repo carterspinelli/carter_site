@@ -67,8 +67,8 @@ export default function Home() {
           viewOptions={{ margin: "0px 0px -200px 0px" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="flex flex-col items-end lowercase">
-            <a href="/projects" className="mb-2 hover:underline">projects</a>
+          <div className="flex flex-col lowercase">
+            <a href="/projects" className="mb-2 hover:underline ml-[0px]">projects</a>
             <a href="/miscellaneous" className="hover:underline">miscellaneous</a>
           </div>
         </InView>
