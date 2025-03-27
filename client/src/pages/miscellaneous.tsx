@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
@@ -6,16 +7,24 @@ import { Spotlight } from "@/components/ui/spotlight";
 export default function Miscellaneous() {
   const titles = [
     {
-      title: "Steve Jobs",
-      year: 1997,
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Steve_Jobs_Headshot_2003.jpg/800px-Steve_Jobs_Headshot_2003.jpg",
-      quote: "Here’s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes… the ones who see things differently — they’re not fond of rules… You can quote them, disagree with them, glorify or vilify them, but the only thing you can’t do is ignore them because they change things… they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do."
+      title: "2001: A Space Odyssey",
+      director: "Stanley Kubrick",
+      image: "https://images.beta.cosmos.so/40fbc749-6796-485b-9588-20204dd7c8f0?format=jpeg"
     },
     {
-      title: "Albert Einstein",
-      year: 1950,
-      image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Einstein_1947.jpg",
-      quote: "A human being is a part of the whole called by us universe, a part limited in time and space. He experiences himself, his thoughts and feeling as something separated from the rest, a kind of optical delusion of his consciousness. This delusion is a kind of prison for us, restricting us to our personal desires and to affection for a few persons nearest to us. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty."
+      title: "Ghost in the Shell",
+      director: "Mamoru Oshii",
+      image: "https://images.beta.cosmos.so/f7fcb95d-981b-4cb3-897f-e35f6c20e830?format=jpeg"
+    },
+    {
+      title: "Blade Runner",
+      director: "Ridley Scott",
+      image: "https://i.imgur.com/JD38uTJ.jpg"
+    },
+    {
+      title: "Akira",
+      director: "Katsuhiro Otomo",
+      image: "https://i.imgur.com/NZ5J703.jpg"
     }
   ];
 
@@ -34,44 +43,49 @@ export default function Miscellaneous() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {titles.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="rounded-lg overflow-hidden shadow-lg"
           >
-            <div className="relative group">
-              <div className='bg-black'>
-                <Tilt
-                  rotationFactor={6}
-                  isRevese
-                >
-                  <div className='aspect-video'>
-                    <Spotlight
-                      className="-top-20 left-0 md:left-10 md:-top-20"
-                      fill="white"
-                    >
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover object-center transition-all group-hover:opacity-80"
-                      />
-                    </Spotlight>
-                  </div>
-                </Tilt>
-              </div>
-              <div className="p-4 lowercase bg-zinc-100 dark:bg-zinc-800">
-                <h3 className="text-xl font-bold mb-1 text-black dark:text-white">
-                {item.title}
+            <div className='aspect-video'>
+              <Tilt
+                rotationFactor={6}
+                isRevese
+                style={{
+                  transformOrigin: 'center center',
+                }}
+                springOptions={{
+                  stiffness: 26.7,
+                  damping: 4.1,
+                  mass: 0.2,
+                }}
+                className='group relative rounded-lg'
+              >
+                <Spotlight
+                  className='z-10 from-white/50 via-white/20 to-white/10 blur-2xl'
+                  size={248}
+                  springOptions={{
+                    stiffness: 26.7,
+                    damping: 4.1,
+                    mass: 0.2,
+                  }}
+                />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'
+                />
+              </Tilt>
+              <div className='flex flex-col space-y-0.5 pb-0 pt-3'>
+                <h3 className='font-mono text-sm font-medium text-zinc-500 dark:text-zinc-400 lowercase'>
+                  {item.title}
                 </h3>
-                <p className='text-sm text-black dark:text-white mb-3 lowercase'>
-                  {item.year}
-                </p>
-                <p className='text-sm text-black dark:text-white lowercase line-clamp-6 hover:line-clamp-none transition-all'>
-                  {item.quote}
+                <p className='text-sm text-black dark:text-white lowercase'>
+                  {item.director}
                 </p>
               </div>
             </div>
