@@ -3,14 +3,20 @@ import { motion } from "framer-motion";
 import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Play, X } from "lucide-react";
 
 // Import assets directly to ensure they are bundled correctly
 import radioheadAlbumArt from '../images/radiohead_kid_a.png';
 import radioheadAudio from '../images/Radiohead - Everything In Its Right Place.mp3';
+import radioheadVideo from '../images/Everything In Its Right Place.mp4';
 
 export default function Miscellaneous() {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [openVideo, setOpenVideo] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
   
   const handlePlayAudio = () => {
     if (audioRef.current) {
@@ -20,6 +26,11 @@ export default function Miscellaneous() {
         audioRef.current.pause();
       }
     }
+  };
+  
+  const handleOpenVideo = (videoSrc: string) => {
+    setCurrentVideo(videoSrc);
+    setOpenVideo(true);
   };
   
   const titles = [
@@ -43,7 +54,9 @@ export default function Miscellaneous() {
     {
       title: "Akira",
       director: "Katsuhiro Otomo",
-      image: "https://i.imgur.com/NZ5J703.jpg"
+      image: "https://i.imgur.com/NZ5J703.jpg",
+      isVideo: true,
+      videoSrc: radioheadVideo
     }
   ];
 
@@ -70,37 +83,97 @@ export default function Miscellaneous() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <div className='aspect-video'>
-              <Tilt
-                rotationFactor={6}
-                isRevese
-                style={{
-                  transformOrigin: 'center center',
-                }}
-                springOptions={{
-                  stiffness: 26.7,
-                  damping: 4.1,
-                  mass: 0.2,
-                }}
-                className='group relative rounded-lg'
-              >
-                <Spotlight
-                  className='z-10 from-white/50 via-white/20 to-white/10 blur-2xl'
-                  size={248}
+              {item.isVideo ? (
+                <Dialog open={openVideo && currentVideo === item.videoSrc} onOpenChange={(open) => !open && setOpenVideo(false)}>
+                  <DialogTrigger asChild>
+                    <div onClick={() => handleOpenVideo(item.videoSrc)}>
+                      <Tilt
+                        rotationFactor={6}
+                        isRevese
+                        style={{
+                          transformOrigin: 'center center',
+                        }}
+                        springOptions={{
+                          stiffness: 26.7,
+                          damping: 4.1,
+                          mass: 0.2,
+                        }}
+                        className='group relative rounded-lg cursor-pointer'
+                      >
+                        <Spotlight
+                          className='z-10 from-white/50 via-white/20 to-white/10 blur-2xl'
+                          size={248}
+                          springOptions={{
+                            stiffness: 26.7,
+                            damping: 4.1,
+                            mass: 0.2,
+                          }}
+                        />
+                        <div className="relative">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Play className="w-12 h-12 text-white drop-shadow-lg" />
+                          </div>
+                        </div>
+                      </Tilt>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-4xl h-auto p-0 overflow-hidden bg-black">
+                    <div className="relative">
+                      <button 
+                        className="absolute top-2 right-2 z-10 bg-black/60 rounded-full p-1"
+                        onClick={() => setOpenVideo(false)}
+                      >
+                        <X className="w-5 h-5 text-white" />
+                      </button>
+                      <video 
+                        src={item.videoSrc} 
+                        controls
+                        autoPlay
+                        className="w-full max-h-[80vh]"
+                        ref={videoRef}
+                        controlsList="nodownload"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ) : (
+                <Tilt
+                  rotationFactor={6}
+                  isRevese
+                  style={{
+                    transformOrigin: 'center center',
+                  }}
                   springOptions={{
                     stiffness: 26.7,
                     damping: 4.1,
                     mass: 0.2,
                   }}
-                />
-                <div className="relative">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    style={item.title === "Everything In Its Right Place" ? { objectPosition: "center center" } : {}}
-                    className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
+                  className='group relative rounded-lg'
+                >
+                  <Spotlight
+                    className='z-10 from-white/50 via-white/20 to-white/10 blur-2xl'
+                    size={248}
+                    springOptions={{
+                      stiffness: 26.7,
+                      damping: 4.1,
+                      mass: 0.2,
+                    }}
                   />
-                </div>
-              </Tilt>
+                  <div className="relative">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={item.title === "Everything In Its Right Place" ? { objectPosition: "center center" } : {}}
+                      className={`h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0`}
+                    />
+                  </div>
+                </Tilt>
+              )}
               <div className='flex flex-col space-y-0.5 pb-0 pt-3'>
                 <h3 className='font-mono text-sm font-medium text-zinc-500 dark:text-zinc-400 lowercase'>
                   {item.title}
@@ -119,6 +192,16 @@ export default function Miscellaneous() {
                       onPlay={() => console.log("Audio playing")}
                       onError={(e) => console.error("Audio error:", e)}
                     />
+                  </div>
+                )}
+                {item.isVideo && (
+                  <div className="mt-2">
+                    <button 
+                      onClick={() => handleOpenVideo(item.videoSrc)}
+                      className="flex items-center gap-2 text-xs text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity"
+                    >
+                      <Play className="w-4 h-4" /> <span>play video</span>
+                    </button>
                   </div>
                 )}
               </div>
