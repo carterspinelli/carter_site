@@ -4,13 +4,14 @@ import { TiltSpotlight } from "@/components/ui/tilt-spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
 import { useRef, useState } from "react";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Play, X } from "lucide-react";
 
 // Import assets directly to ensure they are bundled correctly
 import radioheadAlbumArt from '../images/radiohead_kid_a.png';
 import radioheadAudio from '../images/Radiohead - Everything In Its Right Place.mp3';
 import falconHeavyVideo from '../images/falcon_heavy_boosters_20240625.mp4';
+import falconHeavyImage from '../images/falcon_heavy_boosters_landing.webp';
 
 export default function Miscellaneous() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -54,7 +55,7 @@ export default function Miscellaneous() {
     {
       title: "Falcon Heavy Boosters",
       director: "SpaceX, 2025",
-      image: "https://i.imgur.com/NZ5J703.jpg",
+      image: falconHeavyImage,
       isVideo: true,
       videoSrc: falconHeavyVideo
     }
@@ -124,6 +125,7 @@ export default function Miscellaneous() {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-4xl h-auto p-0 overflow-hidden bg-black">
                     <DialogTitle className="sr-only">{item.title} Video</DialogTitle>
+                    <DialogDescription className="sr-only">Watch {item.director}</DialogDescription>
                     <div className="relative">
                       <button 
                         className="absolute top-2 right-2 z-10 bg-black/60 rounded-full p-1"
