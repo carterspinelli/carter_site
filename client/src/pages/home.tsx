@@ -32,7 +32,7 @@ export default function Home() {
     >
       {/* Scroll down text that fades out when scrolling */}
       <motion.div 
-        className="py-12 text-center text-sm sticky top-0 lowercase z-10"
+        className="py-12 text-center text-sm sticky top-0 lowercase z-10 font-mono" // Added font-mono
         style={{ 
           opacity: Math.max(0, 1 - scrollPosition / 50),
           pointerEvents: scrollPosition > 50 ? "none" : "auto" 
@@ -45,7 +45,7 @@ export default function Home() {
       <div className="min-h-[150vh] flex flex-col justify-end pb-24">
         {/* This spacer keeps content at the bottom of the page */}
         <div className="h-[50vh]"></div>
-        
+
         {/* Main content wrapper */}
         <div className="flex justify-between w-full px-8 md:px-12">
           {/* Left side - paragraph */}
@@ -57,13 +57,13 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <div className="max-w-md lowercase">
+            <div className="max-w-md lowercase font-mono"> {/* Added font-mono */}
               <p>
                 my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
               </p>
             </div>
           </InView>
-          
+
           {/* Right side - links */}
           <InView
             variants={{
@@ -73,13 +73,13 @@ export default function Home() {
             viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
           >
-            <div className="flex flex-col lowercase ml-6 md:ml-12">
-              <Link href="/projects" className="mb-4 hover:underline cursor-pointer text-lg">
-                projects
-              </Link>
-              <Link href="/miscellaneous" className="hover:underline cursor-pointer text-lg">
-                miscellaneous
-              </Link>
+            <div className="flex flex-col lowercase font-mono"> {/* Added font-mono */}
+              <span className="text-foreground hover:underline">
+                <Link href="/projects">projects</Link>
+              </span>
+              <span className="text-foreground hover:underline">
+                <Link href="/miscellaneous">miscellaneous</Link>
+              </span>
             </div>
           </InView>
         </div>
