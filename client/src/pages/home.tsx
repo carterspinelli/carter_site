@@ -72,12 +72,12 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="min-h-[200vh] flex flex-col justify-end pb-24">
+      <div className="min-h-[220vh] flex flex-col justify-end pb-12">
         {/* This spacer keeps content at the bottom of the page */}
-        <div className="h-[100vh]"></div>
+        <div className="h-[160vh]"></div>
 
-        {/* Main content wrapper - increased bottom padding for visibility */}
-        <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 pb-36">
+        {/* Main content wrapper - positioned near the bottom of the page */}
+        <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 pb-48 mb-16">
           {/* Left side - paragraph */}
           <InView
             variants={{
@@ -85,8 +85,8 @@ export default function Home() {
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
             viewOptions={{ 
-              margin: "0px 0px -200px 0px", 
-              amount: 0.2,
+              margin: "0px 0px -300px 0px", 
+              amount: 0.1,
               once: true 
             }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -105,8 +105,8 @@ export default function Home() {
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
             viewOptions={{ 
-              margin: "0px 0px -200px 0px", 
-              amount: 0.2,
+              margin: "0px 0px -300px 0px", 
+              amount: 0.1,
               once: true 
             }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
