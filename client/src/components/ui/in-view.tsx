@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, useEffect, useState } from 'react';
 import {
   motion,
   useInView,
@@ -30,13 +30,30 @@ export function InView({
   viewOptions,
 }: InViewProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, viewOptions);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.1,
+    ...viewOptions,
+  });
+  
+  // Fallback visibility state that defaults to showing content after a delay
+  // This ensures content eventually appears even if intersection observer fails
+  const [forceVisible, setForceVisible] = useState(false);
+  
+  useEffect(() => {
+    // Force visibility after 1 second as a fallback
+    const timer = setTimeout(() => {
+      setForceVisible(true);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <motion.div
       ref={ref}
       initial='hidden'
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={(isInView || forceVisible) ? 'visible' : 'hidden'}
       variants={variants}
       transition={transition}
     >

@@ -19,7 +19,16 @@ export default function Home() {
       }
     };
 
+    // Initial check to ensure the container is scrollable
+    if (container.scrollHeight <= container.clientHeight) {
+      console.log("Warning: Content not tall enough to scroll");
+    }
+
     container.addEventListener("scroll", handleScroll);
+    
+    // Force an initial scroll event to update state
+    handleScroll();
+    
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
@@ -42,22 +51,26 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="min-h-[150vh] flex flex-col justify-end pb-24">
+      <div className="min-h-[200vh] flex flex-col justify-end pb-24">
         {/* This spacer keeps content at the bottom of the page */}
-        <div className="h-[50vh]"></div>
+        <div className="h-[100vh]"></div>
 
-        {/* Main content wrapper */}
-        <div className="flex justify-between w-full px-8 md:px-12">
+        {/* Main content wrapper - increased bottom padding for visibility */}
+        <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 pb-36">
           {/* Left side - paragraph */}
           <InView
             variants={{
               hidden: { opacity: 0, y: 50, filter: "blur(4px)" },
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
-            viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
+            viewOptions={{ 
+              margin: "0px 0px -100px 0px", 
+              amount: 0.1,
+              once: true 
+            }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <div className="max-w-md lowercase font-mono text-sm"> {/* Updated to text-sm to match scroll down */}
+            <div className="max-w-md lowercase font-mono text-sm mb-10 md:mb-0"> {/* Added margin for mobile */}
               <p>
                 my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
               </p>
@@ -70,14 +83,18 @@ export default function Home() {
               hidden: { opacity: 0, y: 50, filter: "blur(4px)" },
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
-            viewOptions={{ margin: "0px 0px -150px 0px", once: true }}
+            viewOptions={{ 
+              margin: "0px 0px -100px 0px", 
+              amount: 0.1,
+              once: true 
+            }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
           >
-            <div className="flex flex-col lowercase font-mono text-sm"> {/* Updated to text-sm to match scroll down */}
-              <span className="text-foreground hover:underline">
+            <div className="flex flex-col lowercase font-mono text-sm">
+              <span className="text-foreground hover:underline py-1">
                 <Link href="/projects">projects</Link>
               </span>
-              <span className="text-foreground hover:underline">
+              <span className="text-foreground hover:underline py-1">
                 <Link href="/miscellaneous">miscellaneous</Link>
               </span>
             </div>
