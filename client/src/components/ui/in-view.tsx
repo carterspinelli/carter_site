@@ -32,22 +32,27 @@ export function InView({
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    amount: 0.1,
+    amount: 0.2, // Increase threshold - element needs to be more visible
     ...viewOptions,
   });
   
-  // Fallback visibility state that defaults to showing content after a delay
-  // This ensures content eventually appears even if intersection observer fails
+  // Fallback visibility state for production environments
   const [forceVisible, setForceVisible] = useState(false);
   
   useEffect(() => {
-    // Force visibility after 1 second as a fallback
-    const timer = setTimeout(() => {
-      setForceVisible(true);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
+    // Only enable the fallback in production, and delay it longer
+    // to ensure the animation is more noticeable
+    if (import.meta.env.PROD) {
+      const timer = setTimeout(() => {
+        if (!isInView) {
+          console.log("Applying fallback visibility for production");
+          setForceVisible(true);
+        }
+      }, 3000); // Longer delay to let natural animations happen first
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   return (
     <motion.div
