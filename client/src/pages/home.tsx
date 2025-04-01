@@ -102,7 +102,7 @@ export default function Home() {
             >
               <div className="max-w-md lowercase font-mono text-sm mb-10 md:mb-0">
                 <p>
-                  my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
+                  my name is carter spinelli. i build websites and applications.
                 </p>
               </div>
             </InView>
