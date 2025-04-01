@@ -72,54 +72,60 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="min-h-[300vh] flex flex-col justify-end pb-8">
-        {/* This spacer keeps content at the bottom of the page */}
-        <div className="h-[240vh]"></div>
+      <div className="min-h-[130vh] flex flex-col items-center">
+        {/* Spacer to push the main content down to match screenshot */}
+        <div className="h-[65vh]"></div>
 
-        {/* Main content wrapper - positioned near the very bottom of the page */}
-        <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 pb-24 mb-40">
-          {/* Left side - paragraph */}
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 80, filter: "blur(8px)" },
-              visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            }}
-            viewOptions={{ 
-              margin: "0px 0px -400px 0px", 
-              amount: 0.05,
-              once: true 
-            }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <div className="max-w-md lowercase font-mono text-sm mb-10 md:mb-0"> {/* Added margin for mobile */}
-              <p>
-                my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
-              </p>
-            </div>
-          </InView>
+        {/* Main content section matching the orange rectangle position */}
+        <div className="w-full flex flex-col items-start mb-28">
+          {/* Top section with paragraph and links */}
+          <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 mb-4">
+            {/* Left side - paragraph */}
+            <InView
+              variants={{
+                hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+              }}
+              viewOptions={{ 
+                margin: "0px 0px -200px 0px", 
+                amount: 0.1,
+                once: true 
+              }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <div className="max-w-md lowercase font-mono text-sm mb-10 md:mb-0">
+                <p>
+                  my name is carter spinelli. i build digital solutions that reshape how we interact with money, work, learning, and life. my belief is that technology should vanish, leaving only possibility. the best innovations feel invisible yet transform everything.
+                </p>
+              </div>
+            </InView>
 
-          {/* Right side - links */}
-          <InView
-            variants={{
-              hidden: { opacity: 0, y: 80, filter: "blur(8px)" },
-              visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            }}
-            viewOptions={{ 
-              margin: "0px 0px -400px 0px", 
-              amount: 0.05,
-              once: true 
-            }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-          >
-            <div className="flex flex-col lowercase font-mono text-sm">
-              <span className="text-foreground hover:underline py-1">
-                <Link href="/projects">projects</Link>
-              </span>
-              <span className="text-foreground hover:underline py-1">
-                <Link href="/miscellaneous">miscellaneous</Link>
-              </span>
-            </div>
-          </InView>
+            {/* Right side - links */}
+            <InView
+              variants={{
+                hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+              }}
+              viewOptions={{ 
+                margin: "0px 0px -200px 0px", 
+                amount: 0.1,
+                once: true 
+              }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+            >
+              <div className="flex flex-col lowercase font-mono text-sm">
+                <span className="text-foreground hover:underline py-1">
+                  <Link href="/projects">projects</Link>
+                </span>
+                <span className="text-foreground hover:underline py-1">
+                  <Link href="/miscellaneous">miscellaneous</Link>
+                </span>
+              </div>
+            </InView>
+          </div>
+
+          {/* Orange rectangle placeholder area (as shown in screenshot) */}
+          <div className="w-full h-[75px] mt-12"></div>
         </div>
       </div>
     </div>
