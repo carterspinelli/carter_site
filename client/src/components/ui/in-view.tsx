@@ -36,23 +36,11 @@ export function InView({
     ...viewOptions,
   });
   
-  // Fallback visibility state for production environments
+  // For this specific use case, we're disabling the fallback visibility
+  // to ensure content only appears when scrolled into view
   const [forceVisible, setForceVisible] = useState(false);
   
-  useEffect(() => {
-    // Only enable the fallback in production, and delay it longer
-    // to ensure the animation is more noticeable
-    if (import.meta.env.PROD) {
-      const timer = setTimeout(() => {
-        if (!isInView) {
-          console.log("Applying fallback visibility for production");
-          setForceVisible(true);
-        }
-      }, 3000); // Longer delay to let natural animations happen first
-      
-      return () => clearTimeout(timer);
-    }
-  }, [isInView]);
+  // No automatic fallback behavior - content will only appear when scrolled into view
 
   return (
     <motion.div

@@ -72,9 +72,9 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="min-h-[120vh] flex flex-col items-center">
-        {/* Spacer to push the main content down just far enough to hide "scroll down" text */}
-        <div className="h-[70vh]"></div>
+      <div className="min-h-[200vh] flex flex-col items-center">
+        {/* Force very large spacer to ensure content is well below the fold */}
+        <div className="h-[130vh]"></div>
 
         {/* Main content section matching the orange rectangle position */}
         <div className="w-full flex flex-col items-start mb-28">
@@ -87,8 +87,8 @@ export default function Home() {
                 visible: { opacity: 1, y: 0, filter: "blur(0px)" },
               }}
               viewOptions={{ 
-                margin: "0px 0px -100px 0px", 
-                amount: 0.2,
+                margin: "0px 0px -50px 0px", 
+                amount: 0.1,
                 once: true 
               }}
               transition={{ duration: 0.7, ease: "easeOut" }}
@@ -107,8 +107,8 @@ export default function Home() {
                 visible: { opacity: 1, y: 0, filter: "blur(0px)" },
               }}
               viewOptions={{ 
-                margin: "0px 0px -100px 0px", 
-                amount: 0.2,
+                margin: "0px 0px -50px 0px", 
+                amount: 0.1,
                 once: true 
               }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
