@@ -62,7 +62,7 @@ export default function Home() {
     >
       {/* Scroll down text that fades out when scrolling */}
       <motion.div 
-        className="py-12 text-center text-sm sticky top-0 lowercase z-10 font-mono" // Added font-mono
+        className="py-12 text-center text-sm sticky top-0 lowercase z-10 font-mono"
         style={{ 
           opacity: Math.max(0, 1 - scrollPosition / 50),
           pointerEvents: scrollPosition > 50 ? "none" : "auto" 
@@ -76,10 +76,17 @@ export default function Home() {
         {/* Force very large spacer to ensure content is well below the fold */}
         <div className="h-[130vh]"></div>
 
-        {/* Main content section matching the orange rectangle position */}
-        <div className="w-full flex flex-col items-start mb-28">
-          {/* Top section with paragraph and links */}
-          <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 mb-4">
+        {/* Content positioned at the very bottom of the page, only visible after scrolling */}
+        <div 
+          className="w-full flex flex-col items-start fixed bottom-4 left-0 right-0"
+          style={{ 
+            opacity: Math.min(1, (scrollPosition - 20) / 30),
+            pointerEvents: scrollPosition < 30 ? "none" : "auto",
+            transform: `translateY(${Math.max(0, 50 - scrollPosition)}px)`
+          }}
+        >
+          {/* Paragraph and links section - positioned at the very bottom */}
+          <div className="flex flex-col md:flex-row justify-between w-full px-8 md:px-12 mb-1">
             {/* Left side - paragraph */}
             <InView
               variants={{
@@ -124,8 +131,8 @@ export default function Home() {
             </InView>
           </div>
 
-          {/* Area for new content in the orange rectangle position */}
-          <div className="w-full mt-28 px-8 md:px-12">
+          {/* Orange rectangle position - now at the very bottom of the page */}
+          <div className="w-full mt-0 px-8 md:px-12">
             <div className="w-full h-[75px]"></div>
           </div>
         </div>
