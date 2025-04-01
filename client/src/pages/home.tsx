@@ -72,9 +72,9 @@ export default function Home() {
       </motion.div>
 
       {/* Content that appears when scrolling down */}
-      <div className="min-h-[200vh] flex flex-col items-center">
-        {/* Spacer to push the main content down to match screenshot */}
-        <div className="h-[150vh]"></div>
+      <div className="min-h-[120vh] flex flex-col items-center">
+        {/* Spacer to push the main content down just far enough to hide "scroll down" text */}
+        <div className="h-[70vh]"></div>
 
         {/* Main content section matching the orange rectangle position */}
         <div className="w-full flex flex-col items-start mb-28">
