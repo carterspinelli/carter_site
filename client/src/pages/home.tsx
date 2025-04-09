@@ -102,7 +102,7 @@ export default function Home() {
             >
               <div className="max-w-md lowercase font-mono text-sm mb-10 md:mb-0">
                 <p>
-                  my name is carter spinelli. i build websites and applications.
+                  my name is carter spinelli.
                 </p>
               </div>
             </InView>
