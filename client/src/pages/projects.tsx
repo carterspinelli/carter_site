@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
@@ -17,7 +16,7 @@ export default function Projects() {
           <span className="text-xs lowercase">back</span>
         </motion.div>
       </Link>
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,7 +35,7 @@ export default function Projects() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="max-w-2xl lowercase"
       >
-        <p className="text-zinc-500">coming soon...</p>
+        <p className="text-zinc-500">coming soon</p>
       </motion.div>
     </div>
   );
