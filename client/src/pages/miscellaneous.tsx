@@ -63,8 +63,7 @@ export default function Miscellaneous() {
     },
     {
       title: "spacex, 2024",
-      director:
-        "This is how we become interstellar. watching this makes you feel it.",
+      director: "This is how we become interstellar.",
       image: falconHeavyImage,
       isVideo: true,
       videoSrc: falconHeavyVideo,
